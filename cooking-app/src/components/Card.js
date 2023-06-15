@@ -5,12 +5,14 @@ const Card = ({ cookdata }) => {
     title: cookdata.strMeal,
     origin: cookdata.strArea,
     img: cookdata.strMealThumb,
+    instructions: cookdata.strInstructions,
   };
   return (
     <li>
       <h2>{data.title}</h2>
-      <h3>{data.origin}</h3>
+      <h5>Origin : {data.origin}</h5>
       <img src={data.img} alt={data.title} />
+      <p>{data.instructions}</p>
     </li>
   );
 };
