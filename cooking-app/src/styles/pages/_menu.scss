@@ -1,0 +1,28 @@
+
+.cook-container {
+    #search {
+        margin: 0 auto;
+    }
+    ul {
+        background: white;
+        display: flex;
+        justify-content: space-evenly;
+
+        li {
+            font-size: 1.2rem;
+        }
+    }
+    .search-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .data-container {
+        background-color: $color-1;
+        
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+}
