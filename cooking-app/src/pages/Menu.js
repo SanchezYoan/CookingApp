@@ -20,16 +20,6 @@ const Menu = () => {
     "Canadian",
   ];
 
-  //   const searchIngredient = () => {
-  //     cookData.map((cook) => {
-  //       //   for (i = 0; i < 20; i++) {
-  //       //     console.log(cook.strIngredient + { i });
-  //       //   }
-  //       console.log("INGREDIENT" + cook.strIngredient1);
-  //     });
-  //   };
-  //   searchIngredient();
-
   useEffect(() => {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/search.php?s=")
@@ -38,6 +28,16 @@ const Menu = () => {
 
   return (
     <div className="cook-container">
+      <div className="search-container">
+        <input
+          id="search"
+          type="text"
+          placeholder="Tapez un ingrédient"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </div>
       <ul className="radio">
         {origin.map((cook) => (
           <li key={cook}>
@@ -52,23 +52,13 @@ const Menu = () => {
           </li>
         ))}
       </ul>
-      <div className="search-container">
-        <input
-          id="search"
-          type="text"
-          placeholder="Tapez un ingrédient"
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </div>
 
       <ul className="meal-card">
         {cookData
           .filter(
             (cook) =>
               cook.strArea.includes(selectedRadio) &&
-              cook.strIngredient1.includes(search)
+              cook.strInstructions.includes(search)
           )
           .map((cook, index) => (
             <Card cookdata={cook} key={index} />
